@@ -48,6 +48,11 @@ public class SolicitacaoChamado {
 	 * @param passo3
 	 * @param desc
 	 */
+    
+    public SolicitacaoChamado() {
+    	
+    }
+    
 	public SolicitacaoChamado(Long solicitacao_id, Cliente cliente, Carga carga, Funcionario funcionario,
 			LocalizacaoCliente localizacaoCliente, Veiculo veiculo, boolean passo1, boolean passo2, boolean passo3,
 			String desc) {

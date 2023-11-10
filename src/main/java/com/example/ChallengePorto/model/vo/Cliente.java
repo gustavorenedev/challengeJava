@@ -2,6 +2,7 @@ package com.example.ChallengePorto.model.vo;
 
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,6 +26,7 @@ public class Cliente{
 	private Long cliente_id;
     private String nome;
     private String senha;
+    @Column(unique = true)
     private String cpf;
     private int apolice;
     private String placa;

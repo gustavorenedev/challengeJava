@@ -20,10 +20,4 @@ public interface BaseController<T, ID> {
     default T findById(@PathVariable ID id) {
         return getRepository().findById(id).orElse(null);
     }
-
-    @PostMapping
-    default ResponseEntity<T> createEntity(@RequestBody T entity) {
-        T storedEntity = getRepository().save(entity);
-        return new ResponseEntity<>(storedEntity, HttpStatus.CREATED);
-    }
 }

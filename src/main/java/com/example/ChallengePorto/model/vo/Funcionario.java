@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 
 /** 
@@ -30,6 +31,13 @@ public class Funcionario {
 	 * @param telefone
 	 * @param departamento
 	 */
+	
+	public Funcionario() {
+        this.nome = "Lucas";
+        this.telefone = "11940028922";
+        this.departamento = "Guincheiro";
+    }
+	
 	public Funcionario(String nome, String telefone, String departamento) {
 		this.nome = nome;
 		this.telefone = telefone;
@@ -78,6 +86,10 @@ public class Funcionario {
 		this.departamento = "Guincheiro";
 	}
 	
+	@PrePersist
+    public void prePersist() {
+        System.out.println("PrePersist chamado");
+    }
 	
 }
 
