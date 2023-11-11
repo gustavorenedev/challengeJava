@@ -28,7 +28,7 @@ public class ClienteController implements BaseController<Cliente, Long> {
         return repository;
     }
     
-    @PostMapping("/create")
+    @PostMapping()
     public ResponseEntity<String> create(@RequestBody Cliente cliente) {
         String erro = clienteBO.validarCliente(cliente);
         if (erro == null) {
