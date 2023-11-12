@@ -34,7 +34,6 @@ public class ClienteBO {
             return "Placa inválida. Deve seguir o padrão 'AAA-9999' ou 'AAA-9S99'.";
         }
 
-        // Verifica se o CPF já está cadastrado no banco
         if (cpfCadastrado(cliente.getCpf())) {
             return "CPF já cadastrado.";
         }
