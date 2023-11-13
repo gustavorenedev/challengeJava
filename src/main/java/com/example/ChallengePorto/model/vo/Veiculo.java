@@ -43,9 +43,9 @@ public class Veiculo {
 	// Construtor padrão sem argumentos
     public Veiculo() {
     }
-	
+
 	/**
-	 * Construtor padrão que inicializa os atributos da classe
+	 * @param veiculo_id
 	 * @param motivo
 	 * @param comprimento
 	 * @param altura
@@ -56,9 +56,12 @@ public class Veiculo {
 	 * @param pbt
 	 * @param cmt
 	 * @param pbtc
+	 * @param cliente
+	 * @param cargas
 	 */
-	public Veiculo(String motivo, Float comprimento, Float altura, Float largura, int eixo, String chassi, Float tara,
-			Float pbt, Float cmt, Float pbtc) {
+	public Veiculo(Long veiculo_id, String motivo, Float comprimento, Float altura, Float largura, int eixo,
+			String chassi, Float tara, Float pbt, Float cmt, Float pbtc, Cliente cliente, List<Carga> cargas) {
+		this.veiculo_id = veiculo_id;
 		this.motivo = motivo;
 		this.comprimento = comprimento;
 		this.altura = altura;
@@ -69,126 +72,190 @@ public class Veiculo {
 		this.pbt = pbt;
 		this.cmt = cmt;
 		this.pbtc = pbtc;
+		this.cliente = cliente;
+		this.cargas = cargas;
 	}
+
+	/**
+	 * @return the veiculo_id
+	 */
+	public Long getVeiculo_id() {
+		return veiculo_id;
+	}
+
+	/**
+	 * @param veiculo_id the veiculo_id to set
+	 */
+	public void setVeiculo_id(Long veiculo_id) {
+		this.veiculo_id = veiculo_id;
+	}
+
 	/**
 	 * @return the motivo
 	 */
 	public String getMotivo() {
 		return motivo;
 	}
+
 	/**
 	 * @param motivo the motivo to set
 	 */
 	public void setMotivo(String motivo) {
 		this.motivo = motivo;
 	}
+
 	/**
 	 * @return the comprimento
 	 */
 	public Float getComprimento() {
 		return comprimento;
 	}
+
 	/**
 	 * @param comprimento the comprimento to set
 	 */
 	public void setComprimento(Float comprimento) {
 		this.comprimento = comprimento;
 	}
+
 	/**
 	 * @return the altura
 	 */
 	public Float getAltura() {
 		return altura;
 	}
+
 	/**
 	 * @param altura the altura to set
 	 */
 	public void setAltura(Float altura) {
 		this.altura = altura;
 	}
+
 	/**
 	 * @return the largura
 	 */
 	public Float getLargura() {
 		return largura;
 	}
+
 	/**
 	 * @param largura the largura to set
 	 */
 	public void setLargura(Float largura) {
 		this.largura = largura;
 	}
+
 	/**
 	 * @return the eixo
 	 */
 	public int getEixo() {
 		return eixo;
 	}
+
 	/**
 	 * @param eixo the eixo to set
 	 */
 	public void setEixo(int eixo) {
 		this.eixo = eixo;
 	}
+
 	/**
 	 * @return the chassi
 	 */
 	public String getChassi() {
 		return chassi;
 	}
+
 	/**
 	 * @param chassi the chassi to set
 	 */
 	public void setChassi(String chassi) {
 		this.chassi = chassi;
 	}
+
 	/**
 	 * @return the tara
 	 */
 	public Float getTara() {
 		return tara;
 	}
+
 	/**
 	 * @param tara the tara to set
 	 */
 	public void setTara(Float tara) {
 		this.tara = tara;
 	}
+
 	/**
 	 * @return the pbt
 	 */
 	public Float getPbt() {
 		return pbt;
 	}
+
 	/**
 	 * @param pbt the pbt to set
 	 */
 	public void setPbt(Float pbt) {
 		this.pbt = pbt;
 	}
+
 	/**
 	 * @return the cmt
 	 */
 	public Float getCmt() {
 		return cmt;
 	}
+
 	/**
 	 * @param cmt the cmt to set
 	 */
 	public void setCmt(Float cmt) {
 		this.cmt = cmt;
 	}
+
 	/**
 	 * @return the pbtc
 	 */
 	public Float getPbtc() {
 		return pbtc;
 	}
+
 	/**
 	 * @param pbtc the pbtc to set
 	 */
 	public void setPbtc(Float pbtc) {
 		this.pbtc = pbtc;
+	}
+
+	/**
+	 * @return the cliente
+	 */
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	/**
+	 * @param cliente the cliente to set
+	 */
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	/**
+	 * @return the cargas
+	 */
+	public List<Carga> getCargas() {
+		return cargas;
+	}
+
+	/**
+	 * @param cargas the cargas to set
+	 */
+	public void setCargas(List<Carga> cargas) {
+		this.cargas = cargas;
 	}
 	
 	

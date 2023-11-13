@@ -38,21 +38,41 @@ public class Cliente{
     // Construtor padrão sem argumentos
     public Cliente() {
     }
-    
+
 	/**
-	 * Construtor padrão que inicializa os atributos da classe
+	 * @param cliente_id
 	 * @param nome
 	 * @param senha
 	 * @param cpf
 	 * @param apolice
 	 * @param placa
+	 * @param veiculos
+	 * @param localizacao
 	 */
-	public Cliente(String nome, String senha, String cpf, int apolice, String placa) {
+	public Cliente(Long cliente_id, String nome, String senha, String cpf, int apolice, String placa,
+			List<Veiculo> veiculos, LocalizacaoCliente localizacao) {
+		this.cliente_id = cliente_id;
 		this.nome = nome;
 		this.senha = senha;
 		this.cpf = cpf;
 		this.apolice = apolice;
 		this.placa = placa;
+		this.veiculos = veiculos;
+		this.localizacao = localizacao;
+	}
+
+	/**
+	 * @return the cliente_id
+	 */
+	public Long getCliente_id() {
+		return cliente_id;
+	}
+
+	/**
+	 * @param cliente_id the cliente_id to set
+	 */
+	public void setCliente_id(Long cliente_id) {
+		this.cliente_id = cliente_id;
 	}
 
 	/**
@@ -124,8 +144,37 @@ public class Cliente{
 	public void setPlaca(String placa) {
 		this.placa = placa;
 	}
+
+	/**
+	 * @return the veiculos
+	 */
+	public List<Veiculo> getVeiculos() {
+		return veiculos;
+	}
+
+	/**
+	 * @param veiculos the veiculos to set
+	 */
+	public void setVeiculos(List<Veiculo> veiculos) {
+		this.veiculos = veiculos;
+	}
+
+	/**
+	 * @return the localizacao
+	 */
+	public LocalizacaoCliente getLocalizacao() {
+		return localizacao;
+	}
+
+	/**
+	 * @param localizacao the localizacao to set
+	 */
+	public void setLocalizacao(LocalizacaoCliente localizacao) {
+		this.localizacao = localizacao;
+	}
+	
+	
     
-    
-    
+
 }
 

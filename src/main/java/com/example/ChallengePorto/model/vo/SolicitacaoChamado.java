@@ -36,26 +36,27 @@ public class SolicitacaoChamado {
     private String cidade;
     private String desc;
     
+    public SolicitacaoChamado() {
+    	
+    }
+
 	/**
-	 * @param id
+	 * @param solicitacao_id
 	 * @param cliente
 	 * @param carga
-	 * @param funcionario
 	 * @param localizacaoCliente
 	 * @param veiculo
 	 * @param passo1
 	 * @param passo2
 	 * @param passo3
+	 * @param data
+	 * @param hora
+	 * @param cidade
 	 * @param desc
 	 */
-    
-    public SolicitacaoChamado() {
-    	
-    }
-    
-	public SolicitacaoChamado(Long solicitacao_id, Cliente cliente, Carga carga,
-			LocalizacaoCliente localizacaoCliente, Veiculo veiculo, boolean passo1, boolean passo2, boolean passo3,
-			String data, String hora, String cidade, String desc) {
+	public SolicitacaoChamado(Long solicitacao_id, Cliente cliente, Carga carga, LocalizacaoCliente localizacaoCliente,
+			Veiculo veiculo, boolean passo1, boolean passo2, boolean passo3, String data, String hora, String cidade,
+			String desc) {
 		this.solicitacao_id = solicitacao_id;
 		this.cliente = cliente;
 		this.carga = carga;
@@ -237,6 +238,8 @@ public class SolicitacaoChamado {
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
+    
+	
 
 	
 }

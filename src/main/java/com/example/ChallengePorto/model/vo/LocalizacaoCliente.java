@@ -32,21 +32,39 @@ public class LocalizacaoCliente {
 	// Construtor padrão sem argumentos
     public LocalizacaoCliente() {
     }
-	
+
 	/**
-	 * Construtor padrão que inicializa os atributos da classe
+	 * @param localizacao_id
 	 * @param estado
 	 * @param logradouro
 	 * @param cep
 	 * @param cidade
 	 * @param referencia
+	 * @param cliente
 	 */
-	public LocalizacaoCliente(String estado, String logradouro, String cep, String cidade, String referencia) {
+	public LocalizacaoCliente(Long localizacao_id, String estado, String logradouro, String cep, String cidade,
+			String referencia, Cliente cliente) {
+		this.localizacao_id = localizacao_id;
 		this.estado = estado;
 		this.logradouro = logradouro;
 		this.cep = cep;
 		this.cidade = cidade;
 		this.referencia = referencia;
+		this.cliente = cliente;
+	}
+
+	/**
+	 * @return the localizacao_id
+	 */
+	public Long getLocalizacao_id() {
+		return localizacao_id;
+	}
+
+	/**
+	 * @param localizacao_id the localizacao_id to set
+	 */
+	public void setLocalizacao_id(Long localizacao_id) {
+		this.localizacao_id = localizacao_id;
 	}
 
 	/**
@@ -117,6 +135,20 @@ public class LocalizacaoCliente {
 	 */
 	public void setReferencia(String referencia) {
 		this.referencia = referencia;
+	}
+
+	/**
+	 * @return the cliente
+	 */
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	/**
+	 * @param cliente the cliente to set
+	 */
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 	
 	

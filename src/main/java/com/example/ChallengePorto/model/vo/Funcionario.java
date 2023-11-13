@@ -34,11 +34,32 @@ public class Funcionario {
 	
 	public Funcionario() {
     }
-	
-	public Funcionario(String nome, String telefone, String departamento) {
+
+	/**
+	 * @param funcionario_id
+	 * @param nome
+	 * @param telefone
+	 * @param departamento
+	 */
+	public Funcionario(Long funcionario_id, String nome, String telefone, String departamento) {
+		this.funcionario_id = funcionario_id;
 		this.nome = nome;
 		this.telefone = telefone;
 		this.departamento = departamento;
+	}
+
+	/**
+	 * @return the funcionario_id
+	 */
+	public Long getFuncionario_id() {
+		return funcionario_id;
+	}
+
+	/**
+	 * @param funcionario_id the funcionario_id to set
+	 */
+	public void setFuncionario_id(Long funcionario_id) {
+		this.funcionario_id = funcionario_id;
 	}
 
 	/**
@@ -82,6 +103,7 @@ public class Funcionario {
 	public void setDepartamento(String departamento) {
 		this.departamento = departamento;
 	}
+	
 	
 }
 
