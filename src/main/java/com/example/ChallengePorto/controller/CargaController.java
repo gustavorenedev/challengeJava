@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.ChallengePorto.model.dao.CargaRepository;
 import com.example.ChallengePorto.model.vo.Carga;
-import com.example.ChallengePorto.model.vo.Funcionario;
 import com.example.ChallengePorto.utils.BaseController;
 
 @RestController
@@ -21,15 +20,19 @@ public class CargaController implements BaseController<Carga, Long> {
     @Autowired
     private CargaRepository repository;
 
+    // Implementação do método abstrato da interface BaseController para obter o repositório específico
     @Override
     public JpaRepository<Carga, Long> getRepository() {
         return repository;
     }
-    
+
+    // Endpoint para criar uma nova carga
     @PostMapping
     public ResponseEntity<Carga> createCarga(@RequestBody Carga carga) {
-    	Carga saveCarga = repository.save(carga);
+        // Salva a carga no repositório
+        Carga saveCarga = repository.save(carga);
+        
+        // Retorna a carga criada com o status HTTP 201 (Created)
         return new ResponseEntity<>(saveCarga, HttpStatus.CREATED);
     }
 }
-

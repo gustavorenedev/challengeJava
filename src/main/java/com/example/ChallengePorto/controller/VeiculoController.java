@@ -10,24 +10,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.ChallengePorto.model.dao.VeiculoRepository;
-import com.example.ChallengePorto.model.vo.Funcionario;
 import com.example.ChallengePorto.model.vo.Veiculo;
 import com.example.ChallengePorto.utils.BaseController;
 
 @RestController
 @RequestMapping("/veiculo")
-public class VeiculoController implements BaseController<Veiculo, Long>{
-	@Autowired
+public class VeiculoController implements BaseController<Veiculo, Long> {
+    @Autowired
     private VeiculoRepository repository;
 
+    // Implementação do método abstrato da interface BaseController para obter o repositório específico
     @Override
     public JpaRepository<Veiculo, Long> getRepository() {
         return repository;
     }
     
+    // Endpoint para criar um novo veículo
     @PostMapping
     public ResponseEntity<Veiculo> createVeiculo(@RequestBody Veiculo veiculo) {
-    	Veiculo saveVeiculo = repository.save(veiculo);
+        // Salva o veículo no repositório
+        Veiculo saveVeiculo = repository.save(veiculo);
+        // Retorna o veículo criado com o status HTTP 201 (Created)
         return new ResponseEntity<>(saveVeiculo, HttpStatus.CREATED);
     }
 }

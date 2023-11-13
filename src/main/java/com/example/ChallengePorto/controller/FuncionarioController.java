@@ -15,19 +15,23 @@ import com.example.ChallengePorto.utils.BaseController;
 
 @RestController
 @RequestMapping("/funcionario")
-public class FuncionarioController implements BaseController<Funcionario, Long>{
+public class FuncionarioController implements BaseController<Funcionario, Long> {
 
-	@Autowired
+    @Autowired
     private FuncionarioRepository repository;
 
+    // Implementação do método abstrato da interface BaseController para obter o repositório específico
     @Override
     public JpaRepository<Funcionario, Long> getRepository() {
         return repository;
     }
     
+    // Endpoint para criar um novo funcionário
     @PostMapping
     public ResponseEntity<Funcionario> createFuncionario(@RequestBody Funcionario funcionario) {
-    	Funcionario saveFuncionario = repository.save(funcionario);
+        // Salva o funcionário no repositório
+        Funcionario saveFuncionario = repository.save(funcionario);
+        // Retorna o funcionário criado com o status HTTP 201 (Created)
         return new ResponseEntity<>(saveFuncionario, HttpStatus.CREATED);
     }
 }
