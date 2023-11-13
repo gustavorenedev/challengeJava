@@ -33,9 +33,6 @@ public class Funcionario {
 	 */
 	
 	public Funcionario() {
-        this.nome = "Lucas";
-        this.telefone = "11940028922";
-        this.departamento = "Guincheiro";
     }
 	
 	public Funcionario(String nome, String telefone, String departamento) {
@@ -55,7 +52,7 @@ public class Funcionario {
 	 * @param nome the nome to set
 	 */
 	public void setNome(String nome) {
-		this.nome = "Lucas";
+		this.nome = nome;
 	}
 
 	/**
@@ -69,7 +66,7 @@ public class Funcionario {
 	 * @param telefone the telefone to set
 	 */
 	public void setTelefone(String telefone) {
-		this.telefone = "11940028922";
+		this.telefone = telefone;
 	}
 
 	/**
@@ -83,13 +80,8 @@ public class Funcionario {
 	 * @param departamento the departamento to set
 	 */
 	public void setDepartamento(String departamento) {
-		this.departamento = "Guincheiro";
+		this.departamento = departamento;
 	}
-	
-	@PrePersist
-    public void prePersist() {
-        System.out.println("PrePersist chamado");
-    }
 	
 }
 

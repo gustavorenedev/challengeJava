@@ -34,6 +34,9 @@ public class SolicitacaoChamado {
     private boolean passo1;
     private boolean passo2;
     private boolean passo3;
+    private String data;
+    private String hora;
+    private String cidade;
     private String desc;
     
 	/**
@@ -55,7 +58,7 @@ public class SolicitacaoChamado {
     
 	public SolicitacaoChamado(Long solicitacao_id, Cliente cliente, Carga carga, Funcionario funcionario,
 			LocalizacaoCliente localizacaoCliente, Veiculo veiculo, boolean passo1, boolean passo2, boolean passo3,
-			String desc) {
+			String data, String hora, String cidade, String desc) {
 		this.solicitacao_id = solicitacao_id;
 		this.cliente = cliente;
 		this.carga = carga;
@@ -65,6 +68,9 @@ public class SolicitacaoChamado {
 		this.passo1 = passo1;
 		this.passo2 = passo2;
 		this.passo3 = passo3;
+		this.data = data;
+		this.hora = hora;
+		this.cidade = cidade;
 		this.desc = desc;
 	}
 
@@ -111,6 +117,48 @@ public class SolicitacaoChamado {
 	}
 
 	/**
+	 * @return the data
+	 */
+	public String getData() {
+		return data;
+	}
+
+	/**
+	 * @param data the data to set
+	 */
+	public void setData(String data) {
+		this.data = data;
+	}
+
+	/**
+	 * @return the hora
+	 */
+	public String getHora() {
+		return hora;
+	}
+
+	/**
+	 * @param hora the hora to set
+	 */
+	public void setHora(String hora) {
+		this.hora = hora;
+	}
+
+	/**
+	 * @return the cidade
+	 */
+	public String getCidade() {
+		return cidade;
+	}
+
+	/**
+	 * @param cidade the cidade to set
+	 */
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	/**
 	 * @return the desc
 	 */
 	public String getDesc() {
@@ -123,6 +171,7 @@ public class SolicitacaoChamado {
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
-    
+
+	
 	
 }
