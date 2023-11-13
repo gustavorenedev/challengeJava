@@ -28,7 +28,9 @@ public class Cliente{
     private String senha;
     @Column(unique = true)
     private String cpf;
+    @Column(unique = true)
     private int apolice;
+    @Column(unique = true)
     private String placa;
     @OneToMany(mappedBy = "cliente")
     private List<Veiculo> veiculos;

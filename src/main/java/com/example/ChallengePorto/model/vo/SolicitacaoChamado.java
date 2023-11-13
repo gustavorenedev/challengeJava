@@ -1,11 +1,11 @@
 package com.example.ChallengePorto.model.vo;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,16 +16,16 @@ public class SolicitacaoChamado {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long solicitacao_id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Cliente cliente;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Carga carga;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private LocalizacaoCliente localizacaoCliente;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Veiculo veiculo;
     
     private boolean passo1;

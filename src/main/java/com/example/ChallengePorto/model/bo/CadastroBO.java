@@ -50,6 +50,16 @@ public class CadastroBO {
             return "CPF já cadastrado.";
         }
         
+        // Verificação se o CPF já está cadastrado
+        if (apoliceCadastrado(cliente.getApolice())) {
+            return "Apolice já cadastrado.";
+        }
+        
+        // Verificação se o CPF já está cadastrado
+        if (placaCadastrado(cliente.getPlaca())) {
+            return "Placa já cadastrado.";
+        }
+        
         // Retorna null se todas as validações passarem, indicando que o cliente é válido
         return null;
     }
@@ -112,5 +122,25 @@ public class CadastroBO {
      */
     private boolean cpfCadastrado(String cpf) {
         return clienteRepository.existsByCpf(cpf);
+    }
+    
+    /**
+     * Verifica se um Apolice já está cadastrado.
+     *
+     * @param apolice O Apolice a ser verificado.
+     * @return True se o Apolice já estiver cadastrado, false caso contrário.
+     */
+    private boolean apoliceCadastrado(int apolice) {
+        return clienteRepository.existsByApolice(apolice);
+    }
+    
+    /**
+     * Verifica se um Placa já está cadastrado.
+     *
+     * @param placa O Placa a ser verificado.
+     * @return True se o Placa já estiver cadastrado, false caso contrário.
+     */
+    private boolean placaCadastrado(String placa) {
+        return clienteRepository.existsByPlaca(placa);
     }
 }
