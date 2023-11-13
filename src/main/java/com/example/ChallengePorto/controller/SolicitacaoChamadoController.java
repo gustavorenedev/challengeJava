@@ -28,9 +28,23 @@ public class SolicitacaoChamadoController implements BaseController<SolicitacaoC
     // Endpoint para criar uma nova solicitação de chamado
     @PostMapping
     public ResponseEntity<SolicitacaoChamado> createSolicitacao(@RequestBody SolicitacaoChamado solicitacao) {
-        // Salva a solicitação no repositório
-        SolicitacaoChamado saveSolicitacao = repository.save(solicitacao);
-        // Retorna a solicitação criada com o status HTTP 201 (Created)
-        return new ResponseEntity<>(saveSolicitacao, HttpStatus.CREATED);
+        try {
+            // Salva a solicitação no repositório
+            SolicitacaoChamado saveSolicitacao = repository.save(solicitacao);
+
+            // Cria um objeto para retornar apenas as informações desejadas
+            SolicitacaoChamado responseSolicitacao = new SolicitacaoChamado();
+            responseSolicitacao.setSolicitacao_id(saveSolicitacao.getSolicitacao_id());
+            responseSolicitacao.setCliente(saveSolicitacao.getCliente());
+            responseSolicitacao.setCarga(saveSolicitacao.getCarga());
+            responseSolicitacao.setLocalizacaoCliente(saveSolicitacao.getLocalizacaoCliente());
+            responseSolicitacao.setVeiculo(saveSolicitacao.getVeiculo());
+
+            // Retorna a solicitação criada com o status HTTP 201 (Created)
+            return new ResponseEntity<>(responseSolicitacao, HttpStatus.CREATED);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

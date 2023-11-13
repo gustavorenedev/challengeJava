@@ -28,9 +28,16 @@ public class LocalizacaoClienteController implements BaseController<LocalizacaoC
     // Endpoint para criar uma nova localização de cliente
     @PostMapping
     public ResponseEntity<LocalizacaoCliente> createLocalizacao(@RequestBody LocalizacaoCliente localizacao) {
-        // Salva a localização no repositório
-        LocalizacaoCliente saveLocalizacao = repository.save(localizacao);
-        // Retorna a localização criada com o status HTTP 201 (Created)
-        return new ResponseEntity<>(saveLocalizacao, HttpStatus.CREATED);
+        try {
+            // Salva a localização no repositório
+            LocalizacaoCliente saveLocalizacao = repository.save(localizacao);
+
+            // Retorna a localização criada com o status HTTP 201 (Created)
+            return new ResponseEntity<>(saveLocalizacao, HttpStatus.CREATED);
+        } catch (Exception e) {
+            // Log a exceção ou manipule-a conforme necessário
+            e.printStackTrace(); // Exemplo: imprimir o rastreamento de pilha para depuração
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

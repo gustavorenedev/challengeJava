@@ -23,9 +23,6 @@ public class SolicitacaoChamado {
     private Carga carga;
 
     @ManyToOne
-    private Funcionario funcionario;
-
-    @ManyToOne
     private LocalizacaoCliente localizacaoCliente;
 
     @ManyToOne
@@ -56,13 +53,12 @@ public class SolicitacaoChamado {
     	
     }
     
-	public SolicitacaoChamado(Long solicitacao_id, Cliente cliente, Carga carga, Funcionario funcionario,
+	public SolicitacaoChamado(Long solicitacao_id, Cliente cliente, Carga carga,
 			LocalizacaoCliente localizacaoCliente, Veiculo veiculo, boolean passo1, boolean passo2, boolean passo3,
 			String data, String hora, String cidade, String desc) {
 		this.solicitacao_id = solicitacao_id;
 		this.cliente = cliente;
 		this.carga = carga;
-		this.funcionario = funcionario;
 		this.localizacaoCliente = localizacaoCliente;
 		this.veiculo = veiculo;
 		this.passo1 = passo1;
@@ -72,6 +68,76 @@ public class SolicitacaoChamado {
 		this.hora = hora;
 		this.cidade = cidade;
 		this.desc = desc;
+	}
+
+	/**
+	 * @return the solicitacao_id
+	 */
+	public Long getSolicitacao_id() {
+		return solicitacao_id;
+	}
+
+	/**
+	 * @param solicitacao_id the solicitacao_id to set
+	 */
+	public void setSolicitacao_id(Long solicitacao_id) {
+		this.solicitacao_id = solicitacao_id;
+	}
+
+	/**
+	 * @return the cliente
+	 */
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	/**
+	 * @param cliente the cliente to set
+	 */
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	/**
+	 * @return the carga
+	 */
+	public Carga getCarga() {
+		return carga;
+	}
+
+	/**
+	 * @param carga the carga to set
+	 */
+	public void setCarga(Carga carga) {
+		this.carga = carga;
+	}
+
+	/**
+	 * @return the localizacaoCliente
+	 */
+	public LocalizacaoCliente getLocalizacaoCliente() {
+		return localizacaoCliente;
+	}
+
+	/**
+	 * @param localizacaoCliente the localizacaoCliente to set
+	 */
+	public void setLocalizacaoCliente(LocalizacaoCliente localizacaoCliente) {
+		this.localizacaoCliente = localizacaoCliente;
+	}
+
+	/**
+	 * @return the veiculo
+	 */
+	public Veiculo getVeiculo() {
+		return veiculo;
+	}
+
+	/**
+	 * @param veiculo the veiculo to set
+	 */
+	public void setVeiculo(Veiculo veiculo) {
+		this.veiculo = veiculo;
 	}
 
 	/**
@@ -172,6 +238,5 @@ public class SolicitacaoChamado {
 		this.desc = desc;
 	}
 
-	
 	
 }

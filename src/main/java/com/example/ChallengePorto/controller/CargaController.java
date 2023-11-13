@@ -29,10 +29,15 @@ public class CargaController implements BaseController<Carga, Long> {
     // Endpoint para criar uma nova carga
     @PostMapping
     public ResponseEntity<Carga> createCarga(@RequestBody Carga carga) {
-        // Salva a carga no repositório
-        Carga saveCarga = repository.save(carga);
-        
-        // Retorna a carga criada com o status HTTP 201 (Created)
-        return new ResponseEntity<>(saveCarga, HttpStatus.CREATED);
+        try {
+            // Salva a carga no repositório
+            Carga saveCarga = repository.save(carga);
+
+            // Retorna a carga criada com o status HTTP 201 (Created)
+            return new ResponseEntity<>(saveCarga, HttpStatus.CREATED);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

@@ -29,9 +29,15 @@ public class FuncionarioController implements BaseController<Funcionario, Long> 
     // Endpoint para criar um novo funcionário
     @PostMapping
     public ResponseEntity<Funcionario> createFuncionario(@RequestBody Funcionario funcionario) {
-        // Salva o funcionário no repositório
-        Funcionario saveFuncionario = repository.save(funcionario);
-        // Retorna o funcionário criado com o status HTTP 201 (Created)
-        return new ResponseEntity<>(saveFuncionario, HttpStatus.CREATED);
+        try {
+            // Salva o funcionário no repositório
+            Funcionario saveFuncionario = repository.save(funcionario);
+
+            // Retorna o funcionário criado com o status HTTP 201 (Created)
+            return new ResponseEntity<>(saveFuncionario, HttpStatus.CREATED);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

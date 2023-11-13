@@ -2,6 +2,7 @@ package com.example.ChallengePorto.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,17 +33,22 @@ public class ClienteController implements BaseController<Cliente, Long> {
     // Endpoint para criar um novo cliente
     @PostMapping()
     public ResponseEntity<String> create(@RequestBody Cliente cliente) {
-        // Valida o cadastro do cliente usando a lógica definida em CadastroBO
-        String erro = clienteBO.validarCadastro(cliente);
-        
-        // Se não houver erros de validação, salva o cliente no repositório
-        if (erro == null) {
-            repository.save(cliente);
-            // Retorna uma resposta de sucesso com mensagem
-            return ResponseEntity.ok("Cliente criado com sucesso!");
-        } else {
-            // Se houver erros de validação, retorna uma resposta de erro com a mensagem de erro
-            return ResponseEntity.badRequest().body(erro);
+        try {
+            // Valida o cadastro do cliente usando a lógica definida em CadastroBO
+            String erro = clienteBO.validarCadastro(cliente);
+
+            // Se não houver erros de validação, salva o cliente no repositório
+            if (erro == null) {
+                repository.save(cliente);
+                // Retorna uma resposta de sucesso com mensagem
+                return ResponseEntity.ok("Cliente criado com sucesso!");
+            } else {
+                // Se houver erros de validação, retorna uma resposta de erro com a mensagem de erro
+                return ResponseEntity.badRequest().body(erro);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

@@ -25,12 +25,17 @@ public class VeiculoController implements BaseController<Veiculo, Long> {
         return repository;
     }
     
-    // Endpoint para criar um novo veículo
     @PostMapping
     public ResponseEntity<Veiculo> createVeiculo(@RequestBody Veiculo veiculo) {
-        // Salva o veículo no repositório
-        Veiculo saveVeiculo = repository.save(veiculo);
-        // Retorna o veículo criado com o status HTTP 201 (Created)
-        return new ResponseEntity<>(saveVeiculo, HttpStatus.CREATED);
+        try {
+            // Salva o veículo no repositório
+            Veiculo saveVeiculo = repository.save(veiculo);
+
+            // Retorna o veículo criado com o status HTTP 201 (Created)
+            return new ResponseEntity<>(saveVeiculo, HttpStatus.CREATED);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }
