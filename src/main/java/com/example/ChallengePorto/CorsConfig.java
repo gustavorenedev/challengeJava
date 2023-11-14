@@ -16,7 +16,7 @@ public class CorsConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         // Adiciona a origem permitida (pode ser ajustada para a necessidade específica)
-        config.addAllowedOrigin("http://localhost:5173");
+        config.addAllowedOrigin("https://challenge-porto-sprint4.vercel.app/");
         // Permite todos os métodos HTTP (GET, POST, PUT, DELETE, etc.)
         config.addAllowedMethod("*");
         // Permite todos os cabeçalhos na solicitação
